@@ -28,10 +28,8 @@ scrape_configs:
     static_configs:
       - targets:
           - https://www.google.com
-          - https://www.youtube.com
-          - https://www.facebook.com
-          - https://www.instagram.com
           - https://github.com
+          - https://ollama.com
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
