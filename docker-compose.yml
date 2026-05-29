@@ -7,10 +7,8 @@ services:
       - prometheus_data:/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
-      - "--storage.tsdb.retention.time=999d"
+      - "--storage.tsdb.retention.time=15y"
       - "--storage.tsdb.path=/prometheus"
-    ports:
-      - "9090:9090"
     restart: unless-stopped
     networks:
       - monitoring
@@ -22,8 +20,6 @@ services:
       - ./blackbox/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
     cap_add:
       - NET_RAW
-    ports:
-      - "9115:9115"
     restart: unless-stopped
     networks:
       - monitoring
