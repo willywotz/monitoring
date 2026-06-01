@@ -27,9 +27,9 @@ scrape_configs:
       module: [http]
     static_configs:
       - targets:
-          - https://www.google.com
-          - https://github.com
-          - https://ollama.com
+          - https://api.github.com
+          - https://ollama.com/api
+          - https://api.anthropic.com
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
